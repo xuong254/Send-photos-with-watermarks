@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Gửi ảnh bảo mật</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #d4edda;
+    }
+    .navbar {
+      background-color: #28a745;
+    }
+    .navbar-brand, .nav-link {
+      color: white !important;
+    }
+    .main-container {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Tetj_25</a>
+      <div>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Mã hóa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="room">Giải mã</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <div class="main-container">
+      <h3 class="text-center mb-3">🔐 Mã hóa ảnh </h3>
+      <form method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+  <label>🔼 Chọn ảnh để upload:</label>
+  <input type="file" name="image" class="form-control">
+</div>
+
+<div class="mb-3">
+  <label>🌐 Hoặc dán link ảnh từ Google Drive:</label>
+  <input type="text" name="drive_link" class="form-control" placeholder="https://drive.google.com/..." >
+</div>
+
+  <div class="mb-3">
+    <label for="watermark" class="form-label">Nhập watermark (© Tên bạn...):</label>
+    <input class="form-control" type="text" name="watermark" required>
+  </div>
+  <button class="btn btn-success" type="submit">🔒 Mã hóa & ký ảnh</button>
+
+</form>
+
+{% if zipname %}
+  <div class="alert alert-info mt-2">
+    <strong>✔ Gói ZIP chứa tất cả:</strong> {{ zipname }}
+    <div class="mt-2">
+      <a class="btn btn-primary btn-sm" href="/download/{{ zipname }}">📥 Tải ZIP</a>
+      <a class="btn btn-danger btn-sm" href="/delete/{{ zipname }}">🗑 Xóa ZIP</a>
+    </div>
+  </div>
+{% endif %}
+
+    </div>
+  </div>
+  
+<script>
+    document.getElementById('downloadBtn').onclick = function() {
+        const filename = document.getElementById('filename').value;
+        const ipAddress = document.getElementById('downloadIp').value;
+        window.location.href = `http://${ipAddress}/files/${filename}`;
+    };
+   
+    function sendHandshake() {
+        fetch('/handshake', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'message=Hello!'
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.text();
+            } else {
+                throw new Error('Handshake failed');
+            }
+        })
+        .then(data => {
+            console.log(data); // Sẽ in ra "Ready!" nếu thành công
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    }
+    
+    // Gọi hàm sendHandshake khi trang được tải
+    window.onload = function() {
+        sendHandshake();
+    };
+
+</script>
+
+
+<div class="container mt-4">
+  <div class="main-container">
+    <h3 class="text-center mb-3">📤 Gửi file đến máy khác</h3>
+    <form method="POST" enctype="multipart/form-data" action="/send_file">
+      
+      <div class="mb-3">
+        <label for="target_ip" class="form-label">Nhập địa chỉ IP của máy <strong>nhận</strong>:</label>
+        <input class="form-control" type="text" name="target_ip" required placeholder="VD: 192.168.1.140">
+      </div>
+
+      <div class="mb-3">
+        <label for="callback_ip" class="form-label">Nhập địa chỉ IP của máy <strong>gửi (để phản hồi)</strong>:</label>
+        <input class="form-control" type="text" name="callback_ip" required placeholder="VD: 192.168.1.138">
+      </div>
+
+      <div class="mb-3">
+        <label for="file" class="form-label">Chọn file để gửi:</label>
+        <input class="form-control" type="file" name="file" required>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Gửi file</button>
+    </form>
+  </div>
+</div>
+
+
+</div>
+  <footer class="mt-5">
+    © 2025 - Tetj. Mã hóa ảnh an toàn bằng Python Flask + DES + RSA.
+  </footer>
+
+</body>
+</html>
