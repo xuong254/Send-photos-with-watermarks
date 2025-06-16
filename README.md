@@ -99,7 +99,7 @@ BAITAPLON/
 │   ├── verify.html
 │   └── show_received.html
 └── uploads/
-    └── output.zip (tạm)
+    
 ```
 
 ---
@@ -140,7 +140,7 @@ Truy cập:
 - ✅ Hỗ trợ ảnh từ **upload trực tiếp** hoặc **Google Drive link**
 - 🔐 Toàn bộ ảnh được gắn watermark, mã hóa DES, ký RSA, kiểm tra SHA-512
 - 🌐 Truyền giữa 2 máy nội bộ (LAN)
-- 🔄 Tự động gửi & nhận file `.zip` + phản hồi ACK/NACK
+- 🔄 Tự động gửi & nhận file  + phản hồi ACK/NACK
 
 ---
 
