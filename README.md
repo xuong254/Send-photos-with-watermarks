@@ -130,8 +130,9 @@ Truy cập:
 ---
 
 ## 📷 Demo giao diện
-
-> _Thêm ảnh minh họa tại đây nếu có_
+<p align="center">
+  <img src="hethong.jpg" alt="System Architecture" width="800"/>
+</p>
 
 ---
 
