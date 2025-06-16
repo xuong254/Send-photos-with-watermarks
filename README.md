@@ -143,11 +143,11 @@ Truy cập:
 </p>
 
 <p align="center">
-  <img src="giama.jpg" alt="System Architecture" width="1000"/>
+  <img src="giaima.jpg" alt="System Architecture" width="1000"/>
 </p>
 
 <p align="center">
-  <img src="saugiaima.jpg" alt="System Architecture" width="1000"/>
+  <img src="saumahoa.jpg" alt="System Architecture" width="1000"/>
 </p>
 
 ---
