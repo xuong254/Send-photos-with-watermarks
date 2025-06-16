@@ -131,7 +131,23 @@ Truy cập:
 
 ## 📷 Demo giao diện
 <p align="center">
-  <img src="hethong.jpg" alt="System Architecture" width="800"/>
+  <img src="home.jpg" alt="System Architecture" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="mahoa.jpg" alt="System Architecture" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="truyenfile.jpg" alt="System Architecture" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="giama.jpg" alt="System Architecture" width="1000"/>
+</p>
+
+<p align="center">
+  <img src="saugiaima.jpg" alt="System Architecture" width="1000"/>
 </p>
 
 ---
